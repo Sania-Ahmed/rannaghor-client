@@ -23,7 +23,7 @@ const ChefCard = ({chef}) => {
           <ListGroup.Item className='bg-transparent text-white'>{likes} likes</ListGroup.Item>
         </ListGroup>
         <Card.Body>
-          <Link className='w-full'><Button style={{width:'100%'}} className='btn btn-success fw-semibold'>View recipies</Button></Link>
+          <Link to={`recipies/${id}`} className='w-full'><Button style={{width:'100%'}} className='btn btn-success fw-semibold'>View recipies</Button></Link>
         </Card.Body>
       </Card>
     );

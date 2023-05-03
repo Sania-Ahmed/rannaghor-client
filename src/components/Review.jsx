@@ -6,7 +6,7 @@ import Marquee from 'react-fast-marquee';
 const Review = () => {
     return (
         <div  className='my-5'>
-            <h2 className='my-5'>WHAT WE GET TO HEAR <span className='fw-bold text-success fs-1'>?</span></h2>
+            <h2 className='my-5 ps-2'>WHAT WE GET TO HEAR <span className='fw-bold text-success fs-1'>?</span></h2>
             <Marquee className='mb-5'>
                 <Card style={{ width: '300px', height: '300px' }} className='md:mx-4 bg-danger p-2 rounded-circle d-flex flex-column justify-content-center align-items-center '>
                     <div style={{ width: '90px', height: '90px' }} className='d-flex  justify-content-center align-items-center border border-3 border-light rounded-circle'>

@@ -25,7 +25,7 @@ const Chefs = () => {
                         width: '100%'
                     }}
                     className='row mx-0 border'>
-                        <h2 className='border border-white border-2 text-center my-5 fs-1 py-2 rounded  '><span className='text-success'>Meet the <span className='bg-white p-1'>Masters</span> of kitchen</span></h2>
+                        <h2 className='text-center my-5 fs-1 py-2'><span className='text-white'>Meet the Masters of kitchen</span></h2>
                     {
                         chefs.map(chef => <ChefCard key={chef.id}
                             chef={chef}></ChefCard>)
