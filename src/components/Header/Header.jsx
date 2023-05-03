@@ -1,10 +1,15 @@
 /* eslint-disable no-unused-vars */
-import React from 'react';
+import React, { useContext } from 'react';
 import { Button, Container, Nav, Navbar } from 'react-bootstrap';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import './header.css'
+import { AuthContext } from '../../providers/AuthProvider';
 
 const Header = () => {
+ const{user} = useContext(AuthContext)
+console.log(user)
+
+
   return (
     <Navbar bg="light" expand="lg">
       <Container fluid>
@@ -34,7 +39,7 @@ const Header = () => {
             </NavLink>
           </Nav>
 
-          <Button variant="outline-success">Login</Button>
+          <Link to={'/login'}><Button variant="outline-success">Login</Button></Link>
 
         </Navbar.Collapse>
       </Container>
