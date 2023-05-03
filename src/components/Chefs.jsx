@@ -7,13 +7,12 @@ const Chefs = () => {
     const [chefs, setChefs] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/chefs')
+        fetch( 'http://localhost:5000/chefs')
             .then(res => res.json())
             .then(data => setChefs(data))
     }, [])
     return (
         <div className='mt-5'>
-            
 
             <div className='d-flex justify-content-center align-items-center py-5 mt-5 '>
 
@@ -25,15 +24,13 @@ const Chefs = () => {
                         width: '100%'
                     }}
                     className='row mx-0 border'>
-                        <h2 className='text-center my-5 fs-1 py-2'><span className='text-white'>Meet the Masters of kitchen</span></h2>
+                    <h2 className='text-center my-5 fs-1 py-2'><span className='text-white'>Meet the Masters of kitchen</span></h2>
                     {
                         chefs.map(chef => <ChefCard key={chef.id}
                             chef={chef}></ChefCard>)
                     }
                 </div>
             </div>
-
-
         </div>
     );
 };

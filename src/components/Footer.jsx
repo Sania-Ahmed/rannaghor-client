@@ -1,36 +1,32 @@
 /* eslint-disable no-unused-vars */
 import React from 'react';
+import { FaFacebook, FaYoutube } from "react-icons/fa";
 
 const Footer = () => {
     return (
-        <div >
-            {/* <div>
-                <div className='text-white '>
-                    <p>we also provide:</p>
-                    <p>Cooking classes</p>
-                    <p> online courses</p>
-                    <p> visit our Main office to know more!</p>
-                    <p>address: gulshan , 123 road , 5th floor </p>
-                </div>
-                <div className='text-white text-center '>
-                    <h3>RANNAGHOR</h3>
-                    <small>
-                        address: gulshan , 123 road , 5th floor <br>
-                        </br>
-                        branches : sylhet, barishal , khulna
-                    </small>
-                </div>
-                <div className='text-white '>
-                    <p>
-                        facebook , youtube , intagram
-                    </p>
-                    <p>
-                        mail us : rannaghor@google.com
-                    </p>
-                </div>
+        <div className='mt-md-5'>
+            <div className='bg-dark py-md-2 d-md-flex justify-content-center'>
+            <div className='text-white p-2'>
+              <p className='fw-semibold'>We also provide:</p>
+              <p>Cooking Courses</p>
+              <p>Free trial</p>
+              <p>Cooking exhibition</p>
             </div>
-            <p className='text-white'>copyright @ rannaghor</p> */}
+            <div className='text-white p-2'>
+                <p className='fw-semibold'>THE RANNAGHOR</p>
+                <p>adress: gulshan, road-2a, Dhaka</p>
+            </div>
+            <div className='text-white p-2'>
+               <p className='fw-semibold'>Contact us:</p>
+               <p>email: rannaghor@gmail.com</p>
+            </div>
             
+        </div>
+        <p className='fw-bold text-center text-secondary'>Copyright &copy; RANNAGHOR</p>
+        <div className='d-flex justify-content-center gap-2 align-items-center'>
+            <FaFacebook className='text-primary' style={{width:'40px', height:'40px'}}></FaFacebook>
+            <FaYoutube className='text-danger' style={{width:'40px', height:'40px'}}></FaYoutube>
+        </div>
         </div>
     );
 };
