@@ -3,18 +3,21 @@
 import React, { useState } from 'react';
 import { Button, Card } from 'react-bootstrap';
 import toast, { Toaster } from 'react-hot-toast';
+import Rating from 'react-rating';
+import { FaStar } from "react-icons/fa";
 
 const RecipeCard = ({ recipe }) => {
-    const [ favourite , setFavourite] = useState(false)
+    const [favourite, setFavourite] = useState(false)
     const handleFavourite = () => {
         toast('Added to favourite recipies ^-^',
-         {
-            style: {
-              backgroundColor:'#198754',
-              color: 'white',
-              padding:'8px',
-              fontWeight:'bold'
-            }} )
+            {
+                style: {
+                    backgroundColor: '#198754',
+                    color: 'white',
+                    padding: '8px',
+                    fontWeight: 'bold'
+                }
+            })
         setFavourite(true);
     }
     return (
@@ -26,7 +29,13 @@ const RecipeCard = ({ recipe }) => {
                 </small> </h5>
                 <h5>How to cook?</h5>
                 <p><small className='fw-bold text-secondary fs-5'>{recipe.cooking_method}</small></p>
-                <p>{recipe.rating} star ratings</p>
+                <Rating className='d-block'
+                    placeholderRating={recipe.rating}
+                    emptySymbol={<FaStar className='text-secondary'></FaStar>}
+                    placeholderSymbol={<FaStar className='text-warning'></FaStar>}
+                    fullSymbol={<FaStar className='text-warning'></FaStar>}
+                    readonly
+                />
 
                 <Button onClick={handleFavourite} disabled={favourite} variant="success">Add to favourite</Button>
                 <Toaster />
