@@ -11,7 +11,7 @@ const RecipePage = () => {
     const {id, name, years_of_experience, likes , description , image, recipes_count } = chefInfo;
 
     useEffect(() => {
-        fetch(`http://localhost:5000/recipies/${id}`)
+        fetch(`https://rannaghor-server-sania-ahmed.vercel.app/recipies/${id}`)
         .then(res => res.json())
         .then(data => setRecipe(data))
         setLoading(false)

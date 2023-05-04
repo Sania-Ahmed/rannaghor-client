@@ -19,9 +19,6 @@ const Review = () => {
                             to additional content. This content is a little bit longer.
                         </Card.Text>
                     </Card.Body>
-                    <Card.Footer>
-                        <small className="text-white">Last updated 3 mins ago</small>
-                    </Card.Footer>
                 </Card>
                 <Card style={{ width: '300px', height: '300px' }} className='mx-4 bg-warning p-2 rounded-circle d-flex flex-column justify-content-center align-items-center '>
                     <div style={{ width: '90px', height: '90px' }} className='d-flex  justify-content-center align-items-center border border-3 border-light rounded-circle'>
@@ -33,9 +30,6 @@ const Review = () => {
                             Yummmmm! Looking forward for some more recipies from this master chefs.
                         </Card.Text>
                     </Card.Body>
-                    <Card.Footer>
-                        <small className="text-white">Last updated 4 mins ago</small>
-                    </Card.Footer>
                 </Card>
                 <Card style={{ width: '300px', height: '300px' }} className='mx-4 bg-success p-2 rounded-circle d-flex flex-column justify-content-center align-items-center '>
                     <div style={{ width: '90px', height: '90px' }} className='d-flex  justify-content-center align-items-center border border-3 border-light rounded-circle'>
@@ -47,9 +41,6 @@ const Review = () => {
                             It was an amazing experience. Loved the dishes. Highly prefer this platform .
                         </Card.Text>
                     </Card.Body>
-                    <Card.Footer>
-                        <small className="text-white ">Last updated 6 mins ago</small>
-                    </Card.Footer>
                 </Card>
             </Marquee>
         </div>

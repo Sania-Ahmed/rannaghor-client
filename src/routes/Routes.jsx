@@ -27,7 +27,7 @@ const router = createBrowserRouter([
       {
         path: 'recipies/:id',
         element: <PrivateRoute><RecipePage></RecipePage></PrivateRoute>,
-        loader: ({params}) => fetch(`http://localhost:5000/chefs/${params.id}`)
+        loader: ({params}) => fetch(`https://rannaghor-server-sania-ahmed.vercel.app/chefs/${params.id}`)
       },
       {
         path: 'login',

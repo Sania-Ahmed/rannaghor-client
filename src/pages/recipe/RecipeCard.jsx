@@ -29,7 +29,8 @@ const RecipeCard = ({ recipe }) => {
                 </small> </h5>
                 <h5>How to cook?</h5>
                 <p><small className='fw-bold text-secondary fs-5'>{recipe.cooking_method}</small></p>
-                <Rating className='d-block'
+                <p className='pb-0 mb-0'>{recipe.rating}</p>
+                <Rating className='d-block mb-2'
                     placeholderRating={recipe.rating}
                     emptySymbol={<FaStar className='text-secondary'></FaStar>}
                     placeholderSymbol={<FaStar className='text-warning'></FaStar>}
