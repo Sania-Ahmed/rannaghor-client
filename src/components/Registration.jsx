@@ -1,13 +1,13 @@
 /* eslint-disable no-unused-vars */
 import React, { useContext, useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../providers/AuthProvider';
 
 const Registration = () => {
     const [error, setError] = useState("")
-   const {createUser,updateUser, setUser} = useContext(AuthContext);
-
+   const {createUser,updateUser, setUser, logOut} = useContext(AuthContext);
+   const navigate = useNavigate()
     const handleSignUp = (e) => {
         setError(" ");
         e.preventDefault()
@@ -27,6 +27,8 @@ const Registration = () => {
             setUser(createdUser);
             updateUser( name, photoUrl);
             form.reset();
+            logOut()
+            navigate('/login')
         })
         .catch((error) => {
             const errorMessage = error.message;

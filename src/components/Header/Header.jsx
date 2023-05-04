@@ -8,9 +8,12 @@ import { Tooltip } from 'react-tooltip'
 import { AuthContext } from '../../providers/AuthProvider';
 
 const Header = () => {
- const{user} = useContext(AuthContext)
+ const{user, logOut} = useContext(AuthContext)
 console.log(user)
-
+const handleLogOut = () => {
+  logOut()
+  .then()
+}
 
   return (
     <Navbar bg="light" expand="lg">
@@ -44,6 +47,7 @@ console.log(user)
           {
             user ?<> <Image data-tooltip-id="profile" data-tooltip-content={`${user.displayName || 'Name unavailable'}`}  style={{width:'60px', height: '60px'}} src={user?.photoURL} roundedCircle></Image> 
             <Tooltip id="profile" />
+            <Link onClick={handleLogOut}>log out</Link>
             </>
             :<Link
              to={'/login'}><Button variant="outline-success">Login</Button></Link>

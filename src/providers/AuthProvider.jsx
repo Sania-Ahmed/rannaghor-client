@@ -2,7 +2,7 @@
 /* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from 'react';
 import { createContext } from 'react';
-import { createUserWithEmailAndPassword, getAuth, signInWithEmailAndPassword , GoogleAuthProvider, signInWithPopup, GithubAuthProvider, updateProfile, onAuthStateChanged } from "firebase/auth";
+import { createUserWithEmailAndPassword, getAuth, signInWithEmailAndPassword , GoogleAuthProvider, signInWithPopup, GithubAuthProvider, updateProfile, onAuthStateChanged, signOut } from "firebase/auth";
 
 import app from '../firebase/firebase.config';
 
@@ -17,21 +17,29 @@ const AuthProvider = ({children}) => {
     const [isLoading, setIsLoading] = useState(true)
 
     const createUser = (email, password) => {
+      setIsLoading(true)
         return createUserWithEmailAndPassword (auth, email, password)
     }
 
-    const updateUser = (displayName, photoURL)=>{
-        return  updateProfile(auth.currentUser, {displayName, photoURL})
-       }
-  const signIn = (email,password) => {
+    const signIn = (email,password) => {
+      setIsLoading(true)
     return signInWithEmailAndPassword(auth, email, password)
   }
   const signWithGoogle = () => {
+    setIsLoading(true)
     return signInWithPopup (auth, Googleprovider)
   }
   const signInWithGitHub = () => {
+    setIsLoading(true)
     return signInWithPopup(auth, GitProvider)
   }
+ const logOut = () => {
+  return signOut(auth)
+ }
+
+  const updateUser = (displayName, photoURL)=>{
+      return  updateProfile(auth.currentUser, {displayName, photoURL})
+     }
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (loggedonUser)=>{
@@ -49,8 +57,10 @@ const AuthProvider = ({children}) => {
 
  const authInfo = {
      user,
+     isLoading,
      createUser,
      signIn,
+     logOut,
      signWithGoogle,
      updateUser,
      signInWithGitHub ,
