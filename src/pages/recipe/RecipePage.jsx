@@ -39,7 +39,7 @@ const RecipePage = () => {
             <div className='mt-5'>
                 <h3 className='text-center text-success'>Recepies</h3>
             {
-                loading && <div className='d-flex justify-content-center'><Spinner animation="border" ></Spinner></div>
+                loading && <Spinner animation="border" ></Spinner>
             }
 
             {

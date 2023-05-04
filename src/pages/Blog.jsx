@@ -25,7 +25,7 @@ const Blog = () => {
                     Node.js is a platform for building the i/o applications which are server-side event-driven and made using JavaScript.
                     Express.js is a framework based on Node.js which is used for building web-application using approaches and principles of Node.js event-driven architecture.
                 </p>
-                <h2 className='fw-bold  text-success '>Difference between controlled and uncontrolled component</h2>
+                <h2 className='fw-bold  text-success '>What is a custom hook, and why to create a custom hook?</h2>
                 < p className='text-secondary mb-4'>
                     Custom hook is mainly created by the developer to organise the code also make reusability and light code which also helps the code run faster.
                     Custom React JS hooks offer reusability as when a custom hook is created, it can be reused easily, which makes the code cleaner and reduces the time to write the code. It also enhances the rendering speed of the code as a custom hook does not need to be rendered again and again while rendering the whole code.

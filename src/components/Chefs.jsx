@@ -1,16 +1,21 @@
 /* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from 'react';
 import ChefCard from './ChefCard/ChefCard';
-import { Container } from 'react-bootstrap';
+import { Container, Spinner } from 'react-bootstrap';
 
 const Chefs = () => {
     const [chefs, setChefs] = useState([]);
+    const [spinner, setSpinner] = useState(true); 
 
     useEffect(() => {
         fetch( 'https://rannaghor-server-sania-ahmed.vercel.app/chefs')
             .then(res => res.json())
             .then(data => setChefs(data))
+            setSpinner(false)
     }, [])
+    if(spinner){
+        return <Spinner className='text-white'  animation='border' ></Spinner>
+    }
     return (
         <div className='mt-5'>
 
