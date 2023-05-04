@@ -6,7 +6,7 @@ import { AuthContext } from '../providers/AuthProvider';
 
 const Registration = () => {
     const [error, setError] = useState("")
-   const {createUser,updateUser, setUser, logOut} = useContext(AuthContext);
+   const {createUser,updateUser, setUser, setReload} = useContext(AuthContext);
    const navigate = useNavigate()
     const handleSignUp = (e) => {
         setError(" ");
@@ -24,11 +24,12 @@ const Registration = () => {
             setError(" ")
             const createdUser = result.user ;
             console.log(createdUser);
+            updateUser( name, photoUrl).then( () => {
+                setReload(true)
+            } )
             setUser(createdUser);
-            updateUser( name, photoUrl);
             form.reset();
-            logOut()
-            navigate('/login')
+            navigate('/')
         })
         .catch((error) => {
             const errorMessage = error.message;
@@ -58,7 +59,7 @@ const Registration = () => {
                 Submit
             </Button>
             <p>Have an account? <Link to={'/login'}>Log in</Link></p>
-            <p className='text-danger'>{error}</p>
+            <p className='text-danger fw-semibold fs-4'>{error}</p>
         </Form>
     );
 };

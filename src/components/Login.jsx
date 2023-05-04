@@ -83,7 +83,7 @@ const Login = () => {
     <div className='d-flex flex-column w-full justify-content-center gap-3 align-items-center'>
     <Button onClick={googleLogin} className='w-25' variant="outline-success"> <FaGoogle style={{width:'30px', height:'30px'}}></FaGoogle> Log in with google</Button>
     <Button onClick={gitLogin} className='w-25' variant="outline-success"> <FaGithub style={{width:'30px', height:'30px'}}></FaGithub> Log in with github</Button>
-    <p className='text-danger'>{error}</p>
+    <p className='text-danger fw-semibold fs-4'>{error}</p>
     </div>
     </>
     );

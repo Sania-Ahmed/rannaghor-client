@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 import './chefCard.css'
 
 const ChefCard = ({chef}) => {
-   console.log(chef)
+   
    const {id, name, likes , years_of_experience,image,recipes_count } = chef
     return (
       <Card style={{ width: '18rem' }} className='col-4 m-2 p-2 bg-transparent border border-white'>
