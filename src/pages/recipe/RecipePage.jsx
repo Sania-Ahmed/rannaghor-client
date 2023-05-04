@@ -1,10 +1,11 @@
 /* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from 'react';
-import { Image } from 'react-bootstrap';
+import { Image, Spinner } from 'react-bootstrap';
 import { useLoaderData } from 'react-router-dom';
 import RecipeCard from './RecipeCard';
 
 const RecipePage = () => {
+    const [loading , setLoading] = useState(true)
     const chefInfo = useLoaderData();
     const [recipe, setRecipe] = useState([]);
     const {id, name, years_of_experience, likes , description , image, recipes_count } = chefInfo;
@@ -13,9 +14,8 @@ const RecipePage = () => {
         fetch(`http://localhost:5000/recipies/${id}`)
         .then(res => res.json())
         .then(data => setRecipe(data))
+        setLoading(false)
     },[])
- 
-
 
     return (
         <div>
@@ -38,6 +38,9 @@ const RecipePage = () => {
             {/* the recipies section */}
             <div className='mt-5'>
                 <h3 className='text-center text-success'>Recepies</h3>
+            {
+                loading && <div className='d-flex justify-content-center'><Spinner animation="border" ></Spinner></div>
+            }
 
             {
                 recipe.map(singleRecipe => <RecipeCard key={singleRecipe._id} recipe={singleRecipe} ></RecipeCard> )
