@@ -8,6 +8,7 @@ import Blog from "../pages/Blog";
 import RecipePage from "../pages/recipe/RecipePage";
 import Login from "../components/Login";
 import Registration from "../components/Registration";
+import ErrorPage from "../pages/ErrorPage";
 
 const router = createBrowserRouter([
   {
@@ -36,6 +37,10 @@ const router = createBrowserRouter([
         element: <Registration></Registration>
       }
     ]
+  },
+  {
+    path: '*',
+    element: <ErrorPage></ErrorPage>
   }
 ]);
 
