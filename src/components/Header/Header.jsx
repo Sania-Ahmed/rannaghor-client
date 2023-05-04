@@ -1,8 +1,10 @@
 /* eslint-disable no-unused-vars */
 import React, { useContext } from 'react';
-import { Button, Container, Nav, Navbar } from 'react-bootstrap';
+import { Button, Container, Image, Nav, Navbar } from 'react-bootstrap';
 import { Link, NavLink } from 'react-router-dom';
 import './header.css'
+import 'react-tooltip/dist/react-tooltip.css'
+import { Tooltip } from 'react-tooltip'
 import { AuthContext } from '../../providers/AuthProvider';
 
 const Header = () => {
@@ -39,7 +41,14 @@ console.log(user)
             </NavLink>
           </Nav>
 
-          <Link to={'/login'}><Button variant="outline-success">Login</Button></Link>
+          {
+            user ?<> <Image data-tooltip-id="profile" data-tooltip-content={`${user.displayName || 'Name unavailable'}`}  style={{width:'60px', height: '60px'}} src={user?.photoURL} roundedCircle></Image> 
+            <Tooltip id="profile" />
+            </>
+            :<Link
+             to={'/login'}><Button variant="outline-success">Login</Button></Link>
+
+          }
 
         </Navbar.Collapse>
       </Container>
