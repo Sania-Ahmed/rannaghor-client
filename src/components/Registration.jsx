@@ -1,13 +1,15 @@
 /* eslint-disable no-unused-vars */
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../providers/AuthProvider';
 
 const Registration = () => {
+    const [error, setError] = useState("")
    const {createUser,updateUser, setUser} = useContext(AuthContext);
 
     const handleSignUp = (e) => {
+        setError(" ");
         e.preventDefault()
         const form = e.target
         const name = form.name.value
@@ -19,15 +21,18 @@ const Registration = () => {
 
         createUser(email, password)
         .then(result => {
+            setError(" ")
             const createdUser = result.user ;
             console.log(createdUser);
             setUser(createdUser);
             updateUser( name, photoUrl);
             form.reset();
         })
-        .cath(error => {
-            console.log(error.massage)
-        })
+        .catch((error) => {
+            const errorMessage = error.message;
+            setError(errorMessage);
+            form.reset();
+          });
     }
     return (
         <Form onSubmit={handleSignUp} className='w-50 mx-auto my-5'>
@@ -51,6 +56,7 @@ const Registration = () => {
                 Submit
             </Button>
             <p>Have an account? <Link to={'/login'}>Log in</Link></p>
+            <p className='text-danger'>{error}</p>
         </Form>
     );
 };
